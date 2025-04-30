@@ -3,11 +3,14 @@ import { useForm } from 'react-hook-form'
 import TextField from '../textField/TextField';
 import { Link, useNavigate } from 'react-router-dom';
 import api from '../../api/api';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
+import { useStoreContext } from '../../contextApi/ContextApi';
+
 
 const Login = () => {
     const navigate = useNavigate();
     const [loader, setLoader] = useState(false);
+    const {setToken} = useStoreContext()
 
     const {
         register,
@@ -43,11 +46,13 @@ const Login = () => {
                 "/api/auth/public/login",
                 data
             );
+            //set the token in context
+            setToken(response.token)
             // store the token in local storage:
             localStorage.setItem('JWT_TOKEN', JSON.stringify(response.token))
             console.log(response.token)
             reset();
-            navigate("/");
+            navigate("/dashboard");
             toast.success(greetings[Math.floor(Math.random() * greetings.length)])
         } catch (error) {
             console.log(error);

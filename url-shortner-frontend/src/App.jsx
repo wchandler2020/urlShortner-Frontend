@@ -7,6 +7,7 @@ import Footer from "./components/footer/Footer";
 import Register from "./components/register/Register";
 import { Toaster } from "react-hot-toast";
 import Login from "./components/login/Login";
+import Dashboard from "./components/dashboard/Dashboard";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
         <Footer />
       </BrowserRouter>
