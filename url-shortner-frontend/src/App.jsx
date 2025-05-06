@@ -1,28 +1,13 @@
 import "./App.css";
-import About from "./components/about/About";
-import LandingPage from "./components/landingpage/LandingPage";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Navbar from "./components/navigation/Navbar";
-import Footer from "./components/footer/Footer";
-import Register from "./components/register/Register";
-import { Toaster } from "react-hot-toast";
-import Login from "./components/login/Login";
-import Dashboard from "./components/dashboard/Dashboard";
+import { BrowserRouter } from "react-router-dom";
+import { getApps } from "./utils/helper";
 
 function App() {
+  const CurrentApp = getApps();
   return (
     <div className="bg-slate-200 h-100">
       <BrowserRouter>
-        <Navbar />
-        <Toaster position="top-center" />
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-        </Routes>
-        <Footer />
+        <CurrentApp />
       </BrowserRouter>
     </div>
   );

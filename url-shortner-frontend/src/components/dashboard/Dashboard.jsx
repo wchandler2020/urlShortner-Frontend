@@ -1,15 +1,15 @@
-import React, { useContext, useState } from "react";
+import React, {useState } from "react";
 import Graph from "../chart/Graph";
 import { useStoreContext } from "../../contextApi/ContextApi";
-import { useFetchTotalClicks } from "../hooks/useQuery";
-import Modal from "@mui/material/Modal";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import { Button, FormControl, TextField } from "@mui/material";
+import { useFetchMyShortUrls, useFetchTotalClicks } from "../hooks/useQuery";
 import ShortenPopUp from "./ShortenPopUp";
+import { FaLink } from 'react-icons/fa'
+import ShortenUrlList from "./ShortenUrlList";
+
+
 
 const Dashboard = () => {
-  const refetch = false;
+  // const refetch = false;
   const { token } = useStoreContext();
   const [shortenPopUp, setShortenPopUp] = useState(false);
 
@@ -18,20 +18,10 @@ const Dashboard = () => {
     token,
     onError
   );
-
-  const handleClose = () => setShortenPopUp(false);
-
-  const style = {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    width: 400,
-    bgcolor: "background.paper",
-    border: "2px solid #000",
-    boxShadow: 24,
-    p: 4,
-  };
+  const { isLoading, data: myShortenUrls, refetch } = useFetchMyShortUrls(
+    token,
+    onError
+  );
 
   return (
     <div className="lg:px-14 sm:px-8 px-4 min-h-[calc(100vh-64px)]">
@@ -61,6 +51,23 @@ const Dashboard = () => {
               Create a New Short URL
             </button>
           </div>
+          <div>
+            {
+              !isLoading && myShortenUrls.length === 0 ? (
+                <div className="flex justify-center pt-16">
+                  <div className="flex gap-2 items-center justify-center  py-6 sm:px-8 px-5 rounded-md   shadow-lg  bg-gray-50">
+                    <h1 className="text-slate-800 font-montserrat   sm:text-[18px] text-[14px] font-semibold mb-1 ">
+                      You have no created short links yet.
+                    </h1>
+                    <FaLink className="text-blue-500 sm:text-xl text-sm " />
+                  </div>
+              </div>
+              ) : (
+                <ShortenUrlList data={myShortenUrls} />
+              )
+            }
+          </div>
+          
         </div>
       )}
       <ShortenPopUp open={shortenPopUp} setOpen={setShortenPopUp} refetch={refetch}/>

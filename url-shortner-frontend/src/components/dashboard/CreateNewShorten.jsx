@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, {useState } from "react";
 import { useStoreContext } from "../../contextApi/ContextApi";
 import { useForm } from "react-hook-form";
 // import { TextField } from "@mui/material";
@@ -42,6 +42,7 @@ const CreateNewShorten = ({ setOpen, refetch }) => {
                 duration: 5000
             });
         });
+        // await refetch()
         reset()
         setOpen(false)
     } catch (error) {

@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation} from "react-router-dom";
 import { IoIosMenu } from "react-icons/io";
 import { RxCross2 } from "react-icons/rx";
 // import { useStoreContext } from "../contextApi/ContextApi";
 
 
 const Navbar = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [ token, setToken ] = useState(false);
   const path = useLocation().pathname;
   const [navbarOpen, setNavbarOpen] = useState(false);

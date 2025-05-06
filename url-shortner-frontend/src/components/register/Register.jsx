@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form'
 import TextField from '../textField/TextField';
 import { Link, useNavigate } from 'react-router-dom';
 import api from '../../api/api';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 
 const Register = () => {
     const navigate = useNavigate();
