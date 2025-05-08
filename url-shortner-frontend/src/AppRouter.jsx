@@ -8,6 +8,8 @@ import Login from "./components/login/Login";
 import Register from "./components/register/Register";
 import Dashboard from "./components/dashboard/Dashboard";
 import Footer from "./components/footer/Footer";
+import PrivateRoute from "./PrivateRoute";
+import Error from "./components/error/Error";
 
 const AppRouter = () => {
   return (
@@ -17,9 +19,11 @@ const AppRouter = () => {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/about" element={<About />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="*" element={<Error message=''/>} />
+        <Route path="/error" element={<Error message=''/>} />
+        <Route path="/login" element={<PrivateRoute publicPage={true}> <Login /></PrivateRoute>} />
+        <Route path="/register" element={<PrivateRoute publicPage={true}> <Register /></PrivateRoute>} />
+        <Route path="/dashboard" element={<PrivateRoute publicPage={false}><Dashboard /></PrivateRoute>} />
       </Routes>
       <Footer />
     </>

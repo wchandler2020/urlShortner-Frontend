@@ -59,15 +59,17 @@ const CreateNewShorten = ({ setOpen, refetch }) => {
         className="sm:w-[450px] w-[360px] relative shadow-custom pt-8 pb-5 sm:px-8 px-4 rounded-lg text-slate-700"
       >
         <h1 className="sm:mt-0 mt-3 text-center font-bold sm:text-2xl text-[22px]">
-          Create New Short URL
+        Shorten a long link
+
         </h1>
         <hr className="mt-2 sm:mt-55 mb-3 text-slate-800" />
+        <h5>No credit card required.</h5>
         <div>
           <TextField
-            label="Enter URL"
+            label="Paste your long link here"
             required
             id="originalUrl"
-            placeholder="https://example.com"
+            placeholder="https://example.com/my-long-url"
             type="url"
             message="A correct url is required"
             register={register}
@@ -75,10 +77,10 @@ const CreateNewShorten = ({ setOpen, refetch }) => {
           />
         </div>
         <button
-          className="bg-red-500 font-semibold text-white w-32  py-2  transition-colors  rounded-md my-3"
+          className="bg-red-500 font-semibold text-white w-48  py-2  transition-colors  rounded-md my-3"
           type="text"
         >
-          {loading ? "Loading..." : "Create"}
+          {loading ? "Loading..." : "Get your link for free"}
         </button>
         {!loading && (
           <Tooltip title="Close">

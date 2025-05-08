@@ -61,7 +61,7 @@ const ShortenItem = ({ originalUrl, shortUrl, clickCount, createdDate }) => {
 
   return (
     <div
-      className={`bg-slate-100 shadow-lg border border-dotted  border-slate-500 px-6 sm:py-1 py-3 rounded-md  transition-all duration-100 `}
+      className={`bg-white shadow-lg border border-dotted  border-slate-500 px-6 sm:py-1 py-3 rounded-md  transition-all duration-100 `}
     >
       <div
         className={`flex sm:flex-row flex-col  sm:justify-between w-full sm:gap-0 gap-5 py-5 `}
@@ -89,7 +89,7 @@ const ShortenItem = ({ originalUrl, shortUrl, clickCount, createdDate }) => {
               </span>
               <span className="text-[16px]">{clickCount}</span>
               <span className="text-[15px] ">
-                {clickCount === 1 ? "Click" : "Clicks"}
+                {clickCount === 1 ? "Engagment" : "Engagments"}
               </span>
             </div>
           </div>
@@ -106,7 +106,7 @@ const ShortenItem = ({ originalUrl, shortUrl, clickCount, createdDate }) => {
               onCopy={() => setIsCopied(true)}
               text={`${domain + "/s/" + `${shortUrl}`}`}
             >
-              <div className="flex cursor-pointer gap-1 items-center bg-btnColor py-2  font-semibold shadow-md shadow-slate-500 px-6 rounded-md text-white ">
+              <div className="flex cursor-pointer gap-1 items-center border-btnColor border text-btnColor py-2  font-semibold shadow-md shadow-slate-500 px-6 rounded-md ">
                 <button className="">{isCopied ? "Copied" : "Copy"}</button>
                 {isCopied ? (
                   <LiaCheckSolid className="text-md" />
@@ -118,7 +118,7 @@ const ShortenItem = ({ originalUrl, shortUrl, clickCount, createdDate }) => {
 
             <div
               onClick={() => analyticsHandler(shortUrl)}
-              className="flex cursor-pointer gap-1 items-center bg-rose-700 py-2 font-semibold shadow-md shadow-slate-500 px-6 rounded-md text-white "
+              className="flex cursor-pointer gap-1 items-center border-rose-700 border text-rose-700 py-2 font-semibold shadow-md shadow-slate-500 px-6 rounded-md "
             >
               <button>Analytics</button>
               <MdAnalytics className="text-md" />

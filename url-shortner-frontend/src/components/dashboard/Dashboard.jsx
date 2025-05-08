@@ -14,14 +14,9 @@ const Dashboard = () => {
   const [shortenPopUp, setShortenPopUp] = useState(false);
 
   const onError = () => console.error("ERROR");
-  const { isLoading: loader, data: totalClicks } = useFetchTotalClicks(
-    token,
-    onError
-  );
-  const { isLoading, data: myShortenUrls, refetch } = useFetchMyShortUrls(
-    token,
-    onError
-  );
+  const {isLoading, data: myShortenUrls, refetch } = useFetchMyShortUrls(token, onError)
+    
+  const {isLoading: loader, data: totalClicks} = useFetchTotalClicks(token, onError)
 
   return (
     <div className="lg:px-14 sm:px-8 px-4 min-h-[calc(100vh-64px)]">
@@ -45,7 +40,7 @@ const Dashboard = () => {
           </div>
           <div className="py-5 sm:text-end text-center">
             <button
-              className="bg-custom-gradient px-4 py-2 rounded-md text-white"
+              className="px-4 py-2 rounded-md text-[#5bc8ac] border border-[#5bc8ac] "
               onClick={() => setShortenPopUp(true)}
             >
               Create a New Short URL

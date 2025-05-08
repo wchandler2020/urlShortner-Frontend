@@ -47,7 +47,7 @@ const Register = () => {
         className='min-h-[calc(100vh-64px)] flex justify-center items-center'>
         <form onSubmit={handleSubmit(registerHandler)}
             className="sm:w-[450px] w-[360px]  shadow-custom py-8 sm:px-8 px-4 rounded-md">
-            <h1 className="text-center font-serif text-btnColor font-bold lg:text-3xl text-2xl">
+            <h1 className="text-center text-[#5bc8ac] font-semibold lg:text-3xl text-2xl">
                 Register Here
             </h1>
 
@@ -93,7 +93,7 @@ const Register = () => {
             <button
                 disabled={loader}
                 type='submit'
-                className='bg-customRed font-semibold text-white  bg-custom-gradient w-full py-2 hover:text-slate-400 transition-colors duration-100 rounded-sm my-3'>
+                className='font-semibold text-[#5bc8ac] border border-[#5bc8ac] w-full py-2 hover:text-white hover:bg-[#5bc8ac] transition-colors duration-100 rounded-sm my-3'>
                 {loader ? "Loading..." : "Register"}
             </button>
 
@@ -102,7 +102,7 @@ const Register = () => {
                 <Link
                     className='font-semibold underline hover:text-black'
                     to="/login">
-                        <span className='text-btnColor'> Login</span>
+                        <span className='text-[#5bc8ac]'> Login</span>
                 </Link>
             </p>
         </form>

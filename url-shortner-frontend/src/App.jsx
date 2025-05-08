@@ -5,7 +5,7 @@ import { getApps } from "./utils/helper";
 function App() {
   const CurrentApp = getApps();
   return (
-    <div className="bg-slate-200 h-100">
+    <div className="bg-white h-100">
       <BrowserRouter>
         <CurrentApp />
       </BrowserRouter>

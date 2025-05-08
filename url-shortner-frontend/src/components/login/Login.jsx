@@ -67,7 +67,7 @@ const Login = () => {
         className='min-h-[calc(100vh-64px)] flex justify-center items-center'>
         <form onSubmit={handleSubmit(loginHandler)}
             className="sm:w-[450px] w-[360px]  shadow-custom py-8 sm:px-8 px-4 rounded-md">
-            <h1 className="text-center font-serif text-btnColor font-bold lg:text-3xl text-2xl">
+            <h1 className="text-center text-[#5bc8ac] font-semibold lg:text-3xl text-4xl">
                 Sign In
             </h1>
 
@@ -75,7 +75,7 @@ const Login = () => {
 
             <div className="flex flex-col gap-3">
                 <TextField
-                    label="UserName"
+                    label="USERNAME"
                     required
                     id="username"
                     type="text"
@@ -86,7 +86,7 @@ const Login = () => {
                 />
 
                 <TextField
-                    label="Password"
+                    label="PASSWORD"
                     required
                     id="password"
                     type="password"
@@ -102,7 +102,7 @@ const Login = () => {
             <button
                 disabled={loader}
                 type='submit'
-                className='bg-customRed font-semibold text-white  bg-custom-gradient w-full py-2 hover:text-slate-400 transition-colors duration-100 rounded-sm my-3'>
+                className='text-[#5bc8ac] border border-[#5bc8ac] font-semibold w-full py-2 hover:text-white hover:bg-[#5bc8ac] transition-colors duration-100 rounded-sm my-3'>
                 {loader ? "Loading..." : "Sign In"}
             </button>
 
@@ -111,7 +111,7 @@ const Login = () => {
                 <Link
                     className='font-semibold underline hover:text-black'
                     to="/register">
-                        <span className='text-btnColor'> Register</span>
+                        <span className='text-[#5bc8ac]'> Register</span>
                 </Link>
             </p>
         </form>

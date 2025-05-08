@@ -1,26 +1,29 @@
 import React, { useState } from "react";
-import { Link, useLocation} from "react-router-dom";
+import { Link, useLocation, useNavigate} from "react-router-dom";
 import { IoIosMenu } from "react-icons/io";
 import { RxCross2 } from "react-icons/rx";
-// import { useStoreContext } from "../contextApi/ContextApi";
+import { useStoreContext } from '../../contextApi/ContextApi'
 
 
 const Navbar = () => {
-  // const navigate = useNavigate();
-  const [ token, setToken ] = useState(false);
+  const navigate = useNavigate();
+  // const [ token, setToken ] = useState(false);
   const path = useLocation().pathname;
+  const {token, setToken} = useStoreContext()
   const [navbarOpen, setNavbarOpen] = useState(false);
 
   const onLogOutHandler = () => {
-    console.log("it is working...")
+    setToken(null);
+    localStorage.removeItem('JWT_TOKEN')
+    navigate('/login')
   };
 
   return (
-    <div className="h-16 bg-[#888888]  z-50 flex items-center sticky top-0 ">
+    <div className="h-16 bg-gray-400 z-50 flex items-center sticky top-0 ">
       <div className="lg:px-14 sm:px-8 px-4 w-full flex justify-between">
         <Link to="/">
-          <h1 className="font-bold text-3xl text-white italic sm:mt-0 mt-2">
-            EZ Short
+          <h1 className="text-4xl text-white font-normal sm:mt-0 mt-2">
+            EZ <span className="text-[#5bc8ac]">SHORT</span>
           </h1>
         </Link>
         <ul
@@ -30,38 +33,38 @@ const Navbar = () => {
         >
           <li className="hover:text-btnColor font-[500]  transition-all duration-150">
             <Link
-              className="text-white font-semibold"
+              className="text-white font-light"
               to="/"
             >
-              Home
+              HOME
             </Link>
           </li>
           <li className="hover:text-btnColor font-[500]  transition-all duration-150">
             <Link
               className={`${
-                path === "/about" ? "text-white font-semibold" : "text-gray-200"
+                path === "/about" ? "text-white font-light" : "text-gray-200"
               }`}
               to="/about"
             >
-              About
+              WHY EZ SHORT
             </Link>
           </li>
           {token && (
             <li className="hover:text-btnColor font-[500]  transition-all duration-150">
             <Link
               className={`${
-                path === "/dashboard" ? "text-white font-semibold" : "text-gray-200"
+                path === "/dashboard" ? "text-white font-light" : "text-gray-200"
               }`}
               to="/dashboard"
             >
-              Dashboard
+              ANALYTICS
             </Link>
           </li>
           )}
           {!token && (
             <Link to="/register">
-              <li className=" sm:ml-0 -ml-1 bg-[#5bc8ac] text-white  cursor-pointer w-24 text-center font-semibold px-2 py-2 rounded-md  hover:text-slate-300   transition-all duration-150">
-                SignUp
+              <li className=" sm:ml-0 -ml-1 text-[#5bc8ac] border border-[#5bc8ac] cursor-pointer w-24 text-center font-light px-2 py-2 rounded-md hover:text-white hover:bg-[#5bc8ac] transition-all duration-150">
+                REGISTER
               </li>
             </Link>
             )}
@@ -69,8 +72,8 @@ const Navbar = () => {
           {token && (
             <button
              onClick={onLogOutHandler}
-             className="sm:ml-0 -ml-1 bg-[#5bc8ac] text-white  cursor-pointer w-24 text-center font-semibold px-2 py-2 rounded-md  hover:text-slate-300   transition-all duration-150">
-              LogOut
+             className="sm:ml-0 -ml-1 text-[#5bc8ac] border border-[#5bc8ac]  cursor-pointer w-24 text-center font-light px-2 py-2 rounded-md  hover:text-white hover:border-white transition-all duration-150">
+              LOG OUT
             </button>
             )}
         </ul>
