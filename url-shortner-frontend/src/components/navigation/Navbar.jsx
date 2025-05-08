@@ -19,7 +19,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="h-16 bg-gray-400 z-50 flex items-center sticky top-0 ">
+    <div className="h-16 bg-gray-500 z-50 flex items-center sticky top-0 ">
       <div className="lg:px-14 sm:px-8 px-4 w-full flex justify-between">
         <Link to="/">
           <h1 className="text-4xl text-white font-normal sm:mt-0 mt-2">
