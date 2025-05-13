@@ -14,7 +14,7 @@ import { useStoreContext } from "../../contextApi/ContextApi";
 
 const ShortenItem = ({ originalUrl, shortUrl, clickCount, createdDate }) => {
   const navigate = useNavigate();
-  const domain = "http://url.localhost:3000";
+  const domain = "https://urls.william-chandler.com/";
   const subDomain = domain.replace(/^https?:\/\//, "");
   const [isCopied, setIsCopied] = useState(false);
   const [analyticToggle, setAnalyticToggle] = useState(false);

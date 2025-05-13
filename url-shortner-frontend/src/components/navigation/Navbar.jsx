@@ -49,6 +49,16 @@ const Navbar = () => {
               WHY EZ SHORT
             </Link>
           </li>
+          <li className="hover:text-btnColor font-[500]  transition-all duration-150">
+            <Link
+              className={`${
+                path === "/pricing" ? "text-white font-light" : "text-gray-200"
+              }`}
+              to="/pricing"
+            >
+              PRICING
+            </Link>
+          </li>
           {token && (
             <li className="hover:text-btnColor font-[500]  transition-all duration-150">
             <Link
